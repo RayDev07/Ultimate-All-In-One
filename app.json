@@ -1,0 +1,62 @@
+{
+  "name": "lavamusic",
+  "description": "Lavamusic a powerful music Discord bot that need in your server",
+  "repository": "https://github.com/",
+  "logo": "",
+  "keywords": ["discord", "discordjs", "music"],
+  "env": {    
+    "MONGO_URI": {
+     "description": "Your Mongo url",
+     "value": "mongodb+srv://insane:op5@cluster0.5qyw6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+     "required": true
+    },
+    "NODE_HOST":{
+      "description":"lavalink host",
+      "value": "lavalink.oddcoder.xyz",
+      "required": true
+    },
+    "NODE_ID":{
+      "description":"lavalink ID",
+      "value": "main",
+      "required": true
+    },
+    "NODE_PORT":{
+      "description":"lavalink port",
+      "value": "433",
+      "required": true
+    },
+    "NODE_PASSWORD":{
+      "description":"lavalink password",
+      "value": "CodeX Dev",
+      "required": true
+    },
+    "NODE_SECURE":{
+      "description":"lavalink secure (true/false)",
+      "value": "true",
+      "required": true
+    },
+    "PREFIX":{
+      "description": "your prefix",
+      "value": "&",
+      "required": true
+     },
+    "COlOR":{
+      "description": "embed colour code hex",
+      "value": "#2f3136",
+      "required": false
+     },
+    "LOGS":{
+      "description": "XXX",
+      "required": true
+     },
+    "OWNERID":{
+      "description": "870179991462236170",
+      "required": false
+     },
+    "TOKEN": {
+      "description": "Subcribe To Gamer CodeX",
+      "required": true
+    }
+  }
+}
+
