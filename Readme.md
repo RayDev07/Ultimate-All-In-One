@@ -33,3 +33,4 @@ My Discord Bot is a multi-functional bot that offers a variety of features inclu
    ```sh
    git clone https://github.com/RayDev07/Ultimate-All-In-One.git
    cd Ultimate-All-In-One
+   Node src/index.js
