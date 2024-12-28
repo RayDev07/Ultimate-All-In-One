@@ -1,4 +1,5 @@
 const { EmbedBuilder, Message, Client, PermissionsBitField , ActionRowBuilder , ButtonStyle , ButtonBuilder } = require("discord.js");
+const { NextChat } = require("enplex.js");
 const db = require("../../schema/prefix.js");
 const db2 = require("../../schema/dj");
 const db3 = require("../../schema/setup");
@@ -23,8 +24,21 @@ module.exports = {
         let data = await db3.findOne({ Guild: message.guildId });
         if (data && data.Channel && message.channelId === data.Channel) return client.emit("setupSystem", message);
 
-        const mention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-        if (message.content.match(mention)) {
+        //const mention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+        if (message.mentions.has(client.user) && !message.mentions.everyone && !message.mentions.here) {
+            const prompt = message.content.replace(`<@${client.user.id}>`, "").trim();
+            if (prompt.length !== 0) {
+                const resp = await NextChat.ask(prompt, { model: "gemini" });
+                if (resp.length > 2000) {
+                    const chunks = resp.match(/(.{1,2000})/g);
+
+                    for (const chunk of chunks) {
+                        await message.reply(chunk);
+                    }
+                    return;
+                }
+                return message.reply(resp)
+            }
             const embed = new EmbedBuilder()
                 .setAuthor({name:` ${message.guild.name}`,
       iconURL: message.guild.iconURL()})
@@ -55,7 +69,7 @@ module.exports = {
       );
                 
              
-            message.channel.send({ embeds: [embed] , components : [row]})
+            message.reply({ embeds: [embed] , components : [row]})
         };
         let np = [];
             let npData = await db4.findOne({userId: message.author.id,noprefix: true});
