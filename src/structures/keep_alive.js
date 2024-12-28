@@ -1,8 +1,8 @@
-const express = require('express');
-const app = express();
+const { Rectify } = require('enplex.js');
+const app = new Rectify();
 const port = 3000;
 
-app.get('/', (req, res) => {
+app.route('GET', '/', (req, res) => {
   res.send('Made By <strong> Ray </strong> And <strong> Ozuma </strong> <br>  <h3> Provided By Gamer CodeX</h3> ');
 });
 
