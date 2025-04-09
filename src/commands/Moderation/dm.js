@@ -8,7 +8,7 @@ module.exports = {
     args: false,
     usage: "",
     userPerms: [],
-    owner: false,
+    owner: true,
     premium: false,
     execute: async (message, args, client, prefix) => {
  
