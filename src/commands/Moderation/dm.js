@@ -9,7 +9,7 @@ module.exports = {
     usage: "",
     userPerms: [],
     owner: false,
-    premium: true,
+    premium: false,
     execute: async (message, args, client, prefix) => {
  
              if (!message.member.permissions.has('ManageMessages')){
